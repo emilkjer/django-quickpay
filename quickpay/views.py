@@ -1,8 +1,10 @@
-from models import QuickpayTransaction
-from django.views.generic.edit import BaseCreateView
-from django.utils.decorators import method_decorator
-from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
+from django.utils.decorators import method_decorator
+from django.views.generic.edit import BaseCreateView
+from django.views.decorators.csrf import csrf_exempt
+
+
+from models import QuickpayTransaction
 
 class BaseQuickpayCallback(BaseCreateView):
 	"""

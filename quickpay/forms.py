@@ -1,6 +1,8 @@
 from django import forms
 from django.conf import settings
+
 from utils import request_md5check
+
 
 class QuickpayForm(forms.Form):
     protocol = forms.IntegerField(widget=forms.HiddenInput, initial=6)

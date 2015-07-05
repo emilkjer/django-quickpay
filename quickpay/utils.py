@@ -1,4 +1,7 @@
-from hashlib import md5
+from hashlib import md5, sha256
+
+import hmac
+
 
 def request_md5check(data, secret):
     """
@@ -31,6 +34,15 @@ def request_md5check(data, secret):
         secret
     )
 
-    md5string = ''.join([str(val) for val in md5pieces if val is not None])
+    md5string = ''.join([str(val) for val
+        in md5pieces if val is not None])
     return md5(md5string).hexdigest()
 
+
+
+def sign(params, api_key):
+    '''Compute the checkum on ordered keys'''
+    items = sorted(params.items(), key=lambda x: x[0])
+    base = ' '.join([ str(pair[1]) for pair in items])
+
+    return hmac.new(api_key, base, sha256).hexdigest()
