@@ -26,4 +26,3 @@ class TestUtils(object):
             '8f5122b7912dd76ac6e25395451a2fa682e0c9b0304126463466933f21ab6733',
             params['checksum']
         )
-        dd = 1

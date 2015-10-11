@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name="DjangoQuickpay",
-    version="1.0",
+    version="1.1",
     description="Django app for danish payment gateway Quickpay",
     long_description="Django app for danish payment gateway Quickpay",
     keywords="django, quickpay",
