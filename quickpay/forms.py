@@ -1,7 +1,7 @@
 from django import forms
 from django.conf import settings
 
-from utils import request_md5check
+from utils import sign
 
 
 class QuickpayForm(forms.Form):
@@ -53,17 +53,7 @@ class QuickpayForm(forms.Form):
         super(QuickpayForm, self).__init__(*args, **kwargs)
 
         if secret:
-            # self.compute_md5check(secret)
             self.set_checksum(settings.API_KEY)
-
-    def compute_md5check(self, secret):
-        data = {}
-
-        for field in self:
-            data[field.name] = field.value()
-
-        self.fields['md5check'].initial = request_md5check(data, secret)
-
 
 
     def set_checksum(self, secret):
