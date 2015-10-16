@@ -53,7 +53,7 @@ class QuickpayForm(forms.Form):
         super(QuickpayForm, self).__init__(*args, **kwargs)
 
         if secret:
-            self.set_checksum(settings.API_KEY)
+            self.set_checksum(secret)
 
 
     def set_checksum(self, secret):
