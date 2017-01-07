@@ -1,7 +1,7 @@
 from django import forms
 from django.conf import settings
 
-from utils import sign
+from .utils import sign
 
 
 class QuickpayForm(forms.Form):
