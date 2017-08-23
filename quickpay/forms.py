@@ -54,6 +54,7 @@ class QuickpayForm(forms.Form):
 
         if secret:
             self.set_checksum(secret)
+        print(self.fields['checksum'])
 
 
     def set_checksum(self, secret):
