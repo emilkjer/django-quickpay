@@ -44,5 +44,6 @@ def sign(params, api_key):
     '''Compute the checkum on ordered keys'''
     items = sorted(params.items(), key=lambda x: x[0])
     base = ' '.join([str(pair[1]) for pair in items]).encode('utf-8')
-
+    print(base)
+    print(api_key)
     return hmac.new(api_key, base, sha256).hexdigest()
