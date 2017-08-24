@@ -53,7 +53,7 @@ class QuickpayForm(forms.Form):
 
         if secret:
             checksum = self.set_checksum(secret)
-            kwargs['initial]['checksum'] = checksum
+            kwargs['initial']['checksum'] = checksum
         print('emil')
         print(self.fields['checksum'])
         super(QuickpayForm, self).__init__(*args, **kwargs)
