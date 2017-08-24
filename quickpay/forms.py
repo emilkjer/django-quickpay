@@ -52,7 +52,9 @@ class QuickpayForm(forms.Form):
         secret = kwargs.pop('secret', None)
 
         if secret:
-            self.set_checksum(secret)
+            checksum = self.set_checksum(secret)
+            kwargs['initial]['checksum'] = checksum
+        print('emil')
         print(self.fields['checksum'])
         super(QuickpayForm, self).__init__(*args, **kwargs)
 
@@ -61,4 +63,4 @@ class QuickpayForm(forms.Form):
         # Compute HMAC with SHA256
         data = {x.name: x.value() if x.value() else '' for x in self}
         data.pop('checksum')
-        self.fields['checksum'].initial = sign(data, secret)
+        return sign(data, secret)
