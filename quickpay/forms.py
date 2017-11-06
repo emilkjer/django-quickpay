@@ -60,4 +60,6 @@ class QuickpayForm(forms.Form):
         # Compute HMAC with SHA256
         data = {x.name: x.value() if x.value() else '' for x in self}
         data.pop('checksum')
-        self.fields['checksum'].initial = sign(data, secret)
+        checksum = sign(data, secret)
+        print(checksum)
+        self.fields['checksum'].initial = checksum
