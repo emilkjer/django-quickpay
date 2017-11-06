@@ -61,5 +61,5 @@ class QuickpayForm(forms.Form):
         data = {x.name: x.value() if x.value() else '' for x in self}
         data.pop('checksum')
         checksum = sign(data, secret)
-        print(checksum)
+        #TODO set the value instead of initial since __init__ has been run
         self.fields['checksum'].initial = checksum
